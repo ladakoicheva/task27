@@ -3,7 +3,7 @@ import "./App.css";
 import ContactForm from "./components/ContactForm/ContactForm";
 import ContactsTable from "./components/ContactsTable";
 import { BrowserRouter, Routes, Route, Link } from "react-router-dom";
-import { ThemeContext, languageContext, translations } from "./context";
+import { ThemeContext, languageContext, translations } from "./сontext";
 
 function App() {
   const [contacts, setContacts] = useState([]);
@@ -23,7 +23,8 @@ function App() {
   useEffect(() => {
     const fetchContacts = async () => {
       try {
-        const response = await fetch("/contacts.json");
+        const url = `${import.meta.env.BASE_URL}contacts.json`;
+        const response = await fetch(url);
         const data = await response.json();
         setContacts(data);
       } catch (error) {
@@ -43,8 +44,12 @@ function App() {
 
   const t = (key) => translations[lang]?.[key] ?? key;
 
+  const basename = import.meta.env.BASE_URL
+    ? import.meta.env.BASE_URL.replace(/\/$/, "")
+    : undefined;
+
   return (
-    <BrowserRouter>
+    <BrowserRouter basename={basename}>
       <languageContext.Provider value={{ lang, t }}>
         <ThemeContext.Provider value={theme}>
           <div className="App">

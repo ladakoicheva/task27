@@ -1,7 +1,7 @@
 import { useState, useContext } from "react";
 import { useNavigate } from "react-router-dom";
 import "./ContactForm.css";
-import { languageContext } from "../../context";
+import { languageContext } from "../../сontext";
 
 function ContactForm({ onSave, onCancel }) {
   const navigate = useNavigate();

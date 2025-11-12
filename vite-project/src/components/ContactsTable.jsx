@@ -1,6 +1,6 @@
 import { useContext } from "react";
 import ContactItem from "./ContactItem";
-import { languageContext } from "../context";
+import { languageContext } from "../сontext";
 
 export default function ContactsTable({ contacts, onDelete }) {
   const { t } = useContext(languageContext);

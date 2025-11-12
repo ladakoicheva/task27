@@ -1,5 +1,5 @@
 import { useContext } from "react";
-import { languageContext } from "../context";
+import { languageContext } from "../сontext";
 
 function ContactItem({ contact, onDelete }) {
   const { t } = useContext(languageContext);
