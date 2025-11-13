@@ -1,7 +1,7 @@
 import { useState, useContext } from "react";
 import { useNavigate } from "react-router-dom";
 import "./ContactForm.css";
-import { languageContext } from "../../сontext";
+import { LanguageContext } from "../../context1.js";
 
 function ContactForm({ onSave, onCancel }) {
   const navigate = useNavigate();
@@ -11,7 +11,7 @@ function ContactForm({ onSave, onCancel }) {
 
   const [errors, setErrors] = useState({ name: "", phone: "", email: "" });
 
-  const { t } = useContext(languageContext);
+  const { t } = useContext(LanguageContext);
 
   const nameRegex = /^[A-Za-zА-Яа-яЁёІіЇїЄєҐґ' -]{2,}$/u;
   const phoneRegex = /^\d{3}-\d{3}-\d{2}-\d{2}$/;
@@ -67,11 +67,11 @@ function ContactForm({ onSave, onCancel }) {
     setPhone("");
     setEmail("");
     setErrors({ name: "", phone: "", email: "" });
-    // Перейти на страницу списка контактов после успешного сохранения
+
     try {
       navigate("/list");
     } catch (err) {
-      // если navigate недоступен — игнорируем
+      console.debug("navigate error:", err);
     }
   };
 
@@ -153,7 +153,8 @@ function ContactForm({ onSave, onCancel }) {
               try {
                 navigate("/list");
               } catch (err) {
-                /* ignore */
+               
+                console.debug("navigate error:", err);
               }
             }}
             className="btn btn-secondary"

@@ -1,8 +1,6 @@
-
 import { createContext } from "react";
 
 export const ThemeContext = createContext("light");
-
 
 export const translations = {
   ua: {
@@ -61,7 +59,7 @@ export const translations = {
   },
 };
 
-export const languageContext = createContext({
+export const LanguageContext = createContext({
   lang: "ua",
   t: (k) => k,
 });

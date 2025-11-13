@@ -1,8 +1,8 @@
 import { useContext } from "react";
-import { languageContext } from "../сontext";
+import { LanguageContext } from "../context1.js";
 
 function ContactItem({ contact, onDelete }) {
-  const { t } = useContext(languageContext);
+  const { t } = useContext(LanguageContext);
   return (
     <tr>
       <th scope="row" data-label="id">

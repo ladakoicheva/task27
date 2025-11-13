@@ -3,7 +3,11 @@ import "./App.css";
 import ContactForm from "./components/ContactForm/ContactForm";
 import ContactsTable from "./components/ContactsTable";
 import { BrowserRouter, Routes, Route, Link } from "react-router-dom";
-import { ThemeContext, languageContext, translations } from "./сontext";
+import {
+  ThemeContext,
+ LanguageContext,
+  translations,
+} from "./context1.js";
 
 function App() {
   const [contacts, setContacts] = useState([]);
@@ -50,7 +54,7 @@ function App() {
 
   return (
     <BrowserRouter basename={basename}>
-      <languageContext.Provider value={{ lang, t }}>
+      <LanguageContext.Provider value={{ lang, t }}>
         <ThemeContext.Provider value={theme}>
           <div className="App">
             <nav style={{ marginBottom: "20px" }}>
@@ -96,7 +100,7 @@ function App() {
               : t("changeLangToUkrainian")}
           </button>
         </ThemeContext.Provider>
-      </languageContext.Provider>
+      </LanguageContext.Provider>
     </BrowserRouter>
   );
 }
